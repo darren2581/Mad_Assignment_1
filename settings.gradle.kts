@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MAD Assignment 1"
+rootProject.name = "MADAssignment1"
 include(":app")
  
