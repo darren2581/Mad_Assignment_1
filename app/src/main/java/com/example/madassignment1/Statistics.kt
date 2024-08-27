@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 class Statistics : Fragment() {
 
@@ -14,6 +15,17 @@ class Statistics : Fragment() {
     }
 
     private val viewModel: StatisticsViewModel by viewModels()
+    private lateinit var player1: TextView
+    private lateinit var player2: TextView
+    private lateinit var avatar1: TextView
+    private lateinit var avatar2: TextView
+    private lateinit var win1: TextView
+    private lateinit var win2: TextView
+    private lateinit var lose1: TextView
+    private lateinit var lose2: TextView
+    private lateinit var rounds: TextView
+    private lateinit var percent1: TextView
+    private lateinit var percent2: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +43,26 @@ class Statistics : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Initialize your UI elements or set up listeners here
+        player1 = view.findViewById(R.id.player1)
+        player2 = view.findViewById(R.id.player2)
+        avatar1 = view.findViewById(R.id.avatar1)
+        avatar2 = view.findViewById(R.id.avatar2)
+        win1 = view.findViewById(R.id.oneWin)
+        win2 = view.findViewById(R.id.twoWin)
+        lose1 = view.findViewById(R.id.oneWin)
+        lose2 = view.findViewById(R.id.twoLose)
+        rounds = view.findViewById(R.id.played)
+        percent1 = view.findViewById(R.id.percent1)
+        percent2 = view.findViewById(R.id.percent2)
+
+        player1.text = "Darren"
+        player2.text = "Zhe Yi"
+        avatar1.text = "pic"
+        avatar2.text = "pic"
+        win1.text = "W(2)"
+        win2.text = "W(3)"
+        lose1.text = "L(3)"
+        lose2.text = "L(2)"
+        rounds.text = "Round 6"
     }
 }
