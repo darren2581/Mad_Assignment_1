@@ -28,6 +28,13 @@ class Statistics : Fragment() {
     private lateinit var percent1: TextView
     private lateinit var percent2: TextView
 
+    // For calculation and updates
+    private var roundsPlayed = 0
+    private var winsPlayer1 = 0
+    private var winsPlayer2 = 0
+    private var losesPlayer1 = 0
+    private var losesPlayer2 = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
