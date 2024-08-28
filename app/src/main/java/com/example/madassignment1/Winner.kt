@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +22,8 @@ class Winner : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var winnerAvatar: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +38,16 @@ class Winner : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_winner, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Initialize your ImageView here, after the view has been created
+        winnerAvatar = view.findViewById(R.id.winnerAvatar)
+
+        // Now you can use winnerAvatar, for example, setting an image
+        winnerAvatar.setImageResource(R.drawable.a5)
     }
 
     companion object {

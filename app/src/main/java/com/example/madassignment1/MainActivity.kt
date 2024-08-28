@@ -12,8 +12,16 @@ class MainActivity : AppCompatActivity() {
 
         // Add or replace the Statistics fragment
         if (savedInstanceState == null) {
-            val fragment = Statistics.newInstance()
-            supportFragmentManager.beginTransaction().replace(R.id.statistics, fragment).commit()
+            val statisticFragment = Statistics.newInstance()
+            supportFragmentManager.beginTransaction().replace(R.id.statistics, statisticFragment).commit()
+
+            // Show which player has won
+            val winnerFragment = Winner.newInstance("name1", "name2")
+            supportFragmentManager.beginTransaction().replace(R.id.winner, winnerFragment).commit()
+
+            // Show no moves left and its a draw if no one wins
+//            val drawFragment = Draw.newInstance("name1", "name2")
+//            supportFragmentManager.beginTransaction().replace(R.id.draw, drawFragment).commit()
         }
     }
 }

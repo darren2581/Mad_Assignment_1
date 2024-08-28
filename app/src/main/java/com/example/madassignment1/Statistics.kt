@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 
 class Statistics : Fragment() {
@@ -17,8 +18,8 @@ class Statistics : Fragment() {
     private val viewModel: StatisticsViewModel by viewModels()
     private lateinit var player1: TextView
     private lateinit var player2: TextView
-    private lateinit var avatar1: TextView
-    private lateinit var avatar2: TextView
+    private lateinit var avatar1: ImageView
+    private lateinit var avatar2: ImageView
     private lateinit var win1: TextView
     private lateinit var win2: TextView
     private lateinit var lose1: TextView
@@ -57,8 +58,8 @@ class Statistics : Fragment() {
 
         player1.text = "Darren"
         player2.text = "Zhe Yi"
-        avatar1.text = "pic"
-        avatar2.text = "pic"
+        avatar1.setImageResource(R.drawable.a1)
+        avatar2.setImageResource(R.drawable.a5)
         win1.text = "W(2)"
         win2.text = "W(3)"
         lose1.text = "L(3)"
