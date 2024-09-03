@@ -63,14 +63,42 @@ class Statistics : Fragment() {
         percent1 = view.findViewById(R.id.percent1)
         percent2 = view.findViewById(R.id.percent2)
 
-        player1.text = "Darren"
-        player2.text = "Zhe Yi"
-        avatar1.setImageResource(R.drawable.a1)
-        avatar2.setImageResource(R.drawable.a5)
-        win1.text = "W(2)"
-        win2.text = "W(3)"
-        lose1.text = "L(3)"
-        lose2.text = "L(2)"
-        rounds.text = "Round 6"
+        // Set up observers for LiveData
+        viewModel.roundsPlayed.observe(viewLifecycleOwner) { roundsPlayed ->
+            rounds.text = "Round $roundsPlayed"
+        }
+
+        viewModel.winsPlayer1.observe(viewLifecycleOwner) { winsPlayer1 ->
+            win1.text = "W($winsPlayer1)"
+        }
+
+        viewModel.winsPlayer2.observe(viewLifecycleOwner) { winsPlayer2 ->
+            win2.text = "W($winsPlayer2)"
+        }
+
+        viewModel.losesPlayer1.observe(viewLifecycleOwner) { losesPlayer1 ->
+            lose1.text = "L($losesPlayer1)"
+        }
+
+        viewModel.losesPlayer2.observe(viewLifecycleOwner) { losesPlayer2 ->
+            lose2.text = "L($losesPlayer2)"
+        }
+
+        // Set initial values
+        viewModel.setRoundsPlayed(6)
+        viewModel.setWinsPlayer1(2)
+        viewModel.setWinsPlayer2(3)
+        viewModel.setLosesPlayer1(3)
+        viewModel.setLosesPlayer2(2)
+
+//        player1.text = "Darren"
+//        player2.text = "Zhe Yi"
+//        avatar1.setImageResource(R.drawable.a1)
+//        avatar2.setImageResource(R.drawable.a5)
+//        win1.text = "W(2)"
+//        win2.text = "W(3)"
+//        lose1.text = "L(3)"
+//        lose2.text = "L(2)"
+//        rounds.text = "Round 6"
     }
 }
