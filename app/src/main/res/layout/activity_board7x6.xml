@@ -13,264 +13,482 @@
         android:background="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintVertical_bias="0.632">
 
-        <!-- Container for the 7x6 grid -->
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="6"
-            android:rowCount="7"
-            android:layout_margin="16dp"
+
+        <Button
+            android:id="@+id/r1c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r1c2"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/r1c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r1c3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/r1c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r1c4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/r1c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r1c5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/r1c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r1c6"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/r1c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/r2c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
 
-            <!-- Create 42 buttons for the grid (7 columns x 6 rows) -->
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r2c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r1c1" />
 
-            <!-- Row 1 -->
-            <Button
-                android:id="@+id/r1c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r1c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r1c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r1c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r1c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r1c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r2c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r2c3"
+            app:layout_constraintTop_toBottomOf="@+id/r1c2" />
 
-            <!-- Row 2 -->
-            <Button
-                android:id="@+id/r2c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r2c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r2c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r2c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r2c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r2c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r2c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r2c4"
+            app:layout_constraintTop_toBottomOf="@+id/r1c3" />
 
+        <Button
+            android:id="@+id/r2c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r2c5"
+            app:layout_constraintTop_toBottomOf="@+id/r1c4" />
 
-            <!-- Row 3 -->
-            <Button
-                android:id="@+id/r3c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r3c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r3c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r3c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r3c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r3c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r2c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r2c6"
+            app:layout_constraintTop_toBottomOf="@+id/r1c5" />
 
+        <Button
+            android:id="@+id/r2c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r1c6" />
 
-            <!-- Row 4 -->
-            <Button
-                android:id="@+id/r4c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r4c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r4c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r4c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r4c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r4c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r3c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r3c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r2c1" />
 
+        <Button
+            android:id="@+id/r3c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r3c3"
+            app:layout_constraintTop_toBottomOf="@+id/r2c2" />
 
-            <!-- Row 5 -->
-            <Button
-                android:id="@+id/r5c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r5c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r5c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r5c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r5c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r5c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r3c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r3c4"
+            app:layout_constraintTop_toBottomOf="@+id/r2c3" />
 
+        <Button
+            android:id="@+id/r3c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r3c5"
+            app:layout_constraintTop_toBottomOf="@+id/r2c4" />
 
-            <!-- Row 6 -->
-            <Button
-                android:id="@+id/r6c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r6c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r6c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r6c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r6c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
-            <Button
-                android:id="@+id/r6c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r3c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r3c6"
+            app:layout_constraintTop_toBottomOf="@+id/r2c5" />
 
+        <Button
+            android:id="@+id/r3c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r2c6" />
 
-            <!-- Row 7 -->
+        <Button
+            android:id="@+id/r4c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r4c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r3c1" />
 
+        <Button
+            android:id="@+id/r4c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r4c3"
+            app:layout_constraintTop_toBottomOf="@+id/r3c2" />
 
-            <Button
-                android:id="@+id/r7c1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r4c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r4c4"
+            app:layout_constraintTop_toBottomOf="@+id/r3c3" />
 
-            <Button
-                android:id="@+id/r7c2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r4c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r4c5"
+            app:layout_constraintTop_toBottomOf="@+id/r3c4" />
 
-            <Button
-                android:id="@+id/r7c3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r4c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r4c6"
+            app:layout_constraintTop_toBottomOf="@+id/r3c5" />
 
-            <Button
-                android:id="@+id/r7c4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r4c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r3c6" />
 
-            <Button
-                android:id="@+id/r7c5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r5c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r5c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r4c1" />
 
-            <Button
-                android:id="@+id/r7c6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle" />
+        <Button
+            android:id="@+id/r5c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r5c3"
+            app:layout_constraintTop_toBottomOf="@+id/r4c2" />
 
+        <Button
+            android:id="@+id/r5c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r5c4"
+            app:layout_constraintTop_toBottomOf="@+id/r4c3" />
 
-        </GridLayout>
+        <Button
+            android:id="@+id/r5c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r5c5"
+            app:layout_constraintTop_toBottomOf="@+id/r4c4" />
+
+        <Button
+            android:id="@+id/r5c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r5c6"
+            app:layout_constraintTop_toBottomOf="@+id/r4c5" />
+
+        <Button
+            android:id="@+id/r5c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r4c6" />
+
+        <Button
+            android:id="@+id/r6c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r6c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r5c1" />
+
+        <Button
+            android:id="@+id/r6c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r6c3"
+            app:layout_constraintTop_toBottomOf="@+id/r5c2" />
+
+        <Button
+            android:id="@+id/r6c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r6c4"
+            app:layout_constraintTop_toBottomOf="@+id/r5c3" />
+
+        <Button
+            android:id="@+id/r6c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r6c5"
+            app:layout_constraintTop_toBottomOf="@+id/r5c4" />
+
+        <Button
+            android:id="@+id/r6c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r6c6"
+            app:layout_constraintTop_toBottomOf="@+id/r5c5" />
+
+        <Button
+            android:id="@+id/r6c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r5c6" />
+
+        <Button
+            android:id="@+id/r7c1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r7c2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r6c1" />
+
+        <Button
+            android:id="@+id/r7c2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r7c3"
+            app:layout_constraintTop_toBottomOf="@+id/r6c2" />
+
+        <Button
+            android:id="@+id/r7c3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r7c4"
+            app:layout_constraintTop_toBottomOf="@+id/r6c3" />
+
+        <Button
+            android:id="@+id/r7c4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r7c5"
+            app:layout_constraintTop_toBottomOf="@+id/r6c4" />
+
+        <Button
+            android:id="@+id/r7c5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toStartOf="@+id/r7c6"
+            app:layout_constraintTop_toBottomOf="@+id/r6c5" />
+
+        <Button
+            android:id="@+id/r7c6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/white_circle"
+            android:contentDescription="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r6c6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
