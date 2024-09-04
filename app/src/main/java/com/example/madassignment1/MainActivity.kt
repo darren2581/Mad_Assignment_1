@@ -10,21 +10,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val intent = Intent(this, Board8x7::class.java)
+        val intent = Intent(this, Board8x7::class.java).apply {
+            putExtra("PLAYED", 10)
+            putExtra("PLAYER1_NAME", "Alice")
+            putExtra("PLAYER2_NAME", "Bob")
+            putExtra("PLAYER1_WIN", 10)
+            putExtra("PLAYER2_WIN", 30)
+            putExtra("PLAYER1_LOSE", 3)
+            putExtra("PLAYER2_LOSE", 7)
+            putExtra("PLAYER1_AVATAR", "a1")
+            putExtra("PLAYER2_AVATAR", "a4")
+        }
         startActivity(intent)
-
-        // Add or replace the Statistics fragment
-//        if (savedInstanceState == null) {
-//            val statisticFragment = Statistics.newInstance()
-//            supportFragmentManager.beginTransaction().replace(R.id.statistics, statisticFragment).commit()
-
-        // Show which player has won
-//            val winnerFragment = Winner.newInstance("name1", "name2")
-//            supportFragmentManager.beginTransaction().replace(R.id.winner, winnerFragment).commit()
-
-        // Show no moves left and its a draw if no one wins
-//            val drawFragment = Draw.newInstance("name1", "name2")
-//            supportFragmentManager.beginTransaction().replace(R.id.draw, drawFragment).commit()
-//        }
     }
 }

@@ -6,12 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Board8x7 : AppCompatActivity() {
+class Board7x6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_board8x7)
-
+        setContentView(R.layout.activity_board7x6)
         // Retrieve the integer value from the Intent on previous activity
         val played = intent.getIntExtra("PLAYED", -1)
         val player1Name = intent.getStringExtra("PLAYER1_NAME")

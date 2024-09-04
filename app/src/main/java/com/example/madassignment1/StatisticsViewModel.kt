@@ -21,6 +21,18 @@ class StatisticsViewModel : ViewModel() {
     private val _losesPlayer2 = MutableLiveData<Int>()
     val losesPlayer2: LiveData<Int> get() = _losesPlayer2
 
+    private val _namePlayer1 = MutableLiveData<String>()
+    val namePlayer1: LiveData<String> get() = _namePlayer1
+
+    private val _namePlayer2 = MutableLiveData<String>()
+    val namePlayer2: LiveData<String> get() = _namePlayer2
+
+    private val _avatarPlayer1 = MutableLiveData<String>()
+    val avatarPlayer1: LiveData<String> get() = _avatarPlayer1
+
+    private val _avatarPlayer2 = MutableLiveData<String>()
+    val avatarPlayer2: LiveData<String> get() = _avatarPlayer2
+
     fun setRoundsPlayed(rounds: Int) {
         _roundsPlayed.value = rounds
     }
@@ -39,5 +51,21 @@ class StatisticsViewModel : ViewModel() {
 
     fun setLosesPlayer2(loses: Int) {
         _losesPlayer2.value = loses
+    }
+
+    fun setNamePlayer1(name: String) {
+        _namePlayer1.value = name
+    }
+
+    fun setNamePlayer2(name: String) {
+        _namePlayer2.value = name
+    }
+
+    fun setAvatarPlayer1(avatar: String) {
+        _avatarPlayer1.value = avatar
+    }
+
+    fun setAvatarPlayer2(avatar: String) {
+        _avatarPlayer2.value = avatar
     }
 }
