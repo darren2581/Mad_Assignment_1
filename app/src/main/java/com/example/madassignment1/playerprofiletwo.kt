@@ -89,8 +89,8 @@ class PlayerProfileActivityTwo : AppCompatActivity() {
                 Toast.makeText(this, "Profile saved!", Toast.LENGTH_SHORT).show()
 
                 // Navigate to the next activity
-                //val intent = Intent(this, DisplayProfileActivity::class.java) // Change this to the correct target activity
-                //startActivity(intent) //(add the next activity here)
+                val intent = Intent(this, PlayerProfileActivity::class.java) // Change this to the correct target activity
+                startActivity(intent) //(add the next activity here)
             }
         }
     }

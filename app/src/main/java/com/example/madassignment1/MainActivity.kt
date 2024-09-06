@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             // Create an Intent to start PlayerProfileActivity
             val intent1 = Intent(this, PlayerProfileActivity::class.java)
             startActivity(intent1)
-            val intent2 = Intent(this, PlayerProfileActivity::class.java)
-            startActivity(intent1)
+            val intent2 = Intent(this, PlayerProfileActivityTwo::class.java)
+            startActivity(intent2)
 
         }
     }
