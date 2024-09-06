@@ -5,17 +5,19 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
-class PlayerProfileActivityTwo : AppCompatActivity() {
+class PlayerProfile2 : AppCompatActivity() {
 
     private var selectedAvatar: Int = -1 // -1 indicates no avatar selected
     private var selectedColor: Int = -1 // -1 indicates no color selected
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_playerprofiletwo)
-
+        enableEdgeToEdge()
         // Initialize the views
         val playerNameEditText: EditText = findViewById(R.id.player_enter_name)
         val saveButton: Button = findViewById(R.id.savebutton)
@@ -89,7 +91,7 @@ class PlayerProfileActivityTwo : AppCompatActivity() {
                 Toast.makeText(this, "Profile saved!", Toast.LENGTH_SHORT).show()
 
                 // Navigate to the next activity
-                val intent = Intent(this, PlayerProfileActivity::class.java) // Change this to the correct target activity
+                val intent = Intent(this, PlayerProfile1::class.java) // Change this to the correct target activity
                 startActivity(intent) //(add the next activity here)
             }
         }

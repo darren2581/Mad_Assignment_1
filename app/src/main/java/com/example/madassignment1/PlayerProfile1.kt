@@ -1,21 +1,23 @@
 package com.example.madassignment1
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
-class PlayerProfileActivity : AppCompatActivity() {
+class PlayerProfile1 : AppCompatActivity() {
 
     private var selectedAvatar: Int = -1 // -1 indicates no avatar selected
     private var selectedColor: Int = -1 // -1 indicates no color selected
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_playerprofile)
-
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_player_profile1)
         // Initialize the views
         val playerNameEditText: EditText = findViewById(R.id.player_enter_name)
         val saveButton: Button = findViewById(R.id.savebutton)
