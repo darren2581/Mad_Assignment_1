@@ -12,14 +12,25 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_gamemode) // Loads mainpage.xml
 
-        // Find the button by its ID
+        // Find the buttons by their IDs
         val btnPlayAI: Button = findViewById(R.id.btnPlayAI)
+        val btnPlayHuman: Button = findViewById(R.id.btnTwoPlayer)
 
-        // Set an OnClickListener for the button
+        // Set an OnClickListener for the "Play AI" button
         btnPlayAI.setOnClickListener {
             // Create an Intent to start PlayerProfileActivity
             val intent = Intent(this, PlayerProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        // Set an OnClickListener for the "2 Player" button
+        btnPlayHuman.setOnClickListener {
+            // Create an Intent to start PlayerProfileActivity
+            val intent1 = Intent(this, PlayerProfileActivity::class.java)
+            startActivity(intent1)
+            val intent2 = Intent(this, PlayerProfileActivity::class.java)
+            startActivity(intent1)
+
         }
     }
 }

@@ -17,7 +17,9 @@
         <activity
             android:name=".PlayerProfileActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".PlayerProfileActivityTwo"
+            android:exported="false" />
         <activity
             android:name=".Board6x5"
             android:exported="false" />
@@ -32,6 +34,9 @@
             android:exported="false" />
         <activity
             android:name=".Draws"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Gamemode"
