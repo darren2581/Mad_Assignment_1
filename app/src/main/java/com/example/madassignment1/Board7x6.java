@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Board7x6 extends AppCompatActivity {
 
     private int[][] board7x6; //2D array for the game board
-    private int rows = 7; // num of rows
-    private int cols = 6; // num of cols
+    private int rows = 8; // num of rows
+    private int cols = 7; // num of cols
     private boolean p1Move = true; // Player 1 = true; Player 2 = false
     private String player1Name, player2Name;
     private int chosenAvatar1, chosenAvatar2;

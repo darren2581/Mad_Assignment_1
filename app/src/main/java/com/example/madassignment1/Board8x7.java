@@ -18,7 +18,7 @@ public class Board8x7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_board6x5);
+        setContentView(R.layout.activity_board8x7);
 
         Intent intent = getIntent();
         player1Name = intent.getStringExtra("PLAYER_NAME1");
