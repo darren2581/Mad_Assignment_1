@@ -25,6 +25,15 @@
             android:name=".Board8x7"
             android:exported="false" />
         <activity
+            android:name=".PlayerProfile1"
+            android:exported="false" />
+        <activity
+            android:name=".PlayerProfile2"
+            android:exported="false" />
+        <activity
+            android:name=".StartGame"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
