@@ -5,30 +5,28 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class PlayerProfile2 : AppCompatActivity() {
 
-    private var selectedAvatar: Int = -1 // -1 indicates no avatar selected
-    private var selectedColor: Int = -1 // -1 indicates no color selected
+    private var selectedAvatar: Int = -1
+    private var selectedColor: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        // Initialize the views
+        setContentView(R.layout.activity_player_profile2) // Updated to activity_player_profile2
+
         val playerNameEditText: EditText = findViewById(R.id.player_enter_name)
         val saveButton: Button = findViewById(R.id.savebutton)
 
-        // Avatar buttons
         val avatar1Button: Button = findViewById(R.id.choose_avatar1)
         val avatar2Button: Button = findViewById(R.id.choose_avatar2)
         val avatar3Button: Button = findViewById(R.id.choose_avatar3)
         val avatar4Button: Button = findViewById(R.id.choose_avatar4)
         val avatar5Button: Button = findViewById(R.id.choose_avatar5)
         val avatar6Button: Button = findViewById(R.id.choose_avatar6)
+
+        // (Repeat for other avatars)
 
         // Color buttons
         val redColorButton: Button = findViewById(R.id.choose_colour_red)
@@ -37,6 +35,8 @@ class PlayerProfile2 : AppCompatActivity() {
         val greyColorButton: Button = findViewById(R.id.choose_colour_grey)
         val purpleColorButton: Button = findViewById(R.id.choose_colour_purple)
         val yellowColorButton: Button = findViewById(R.id.choose_colour_yellow)
+        // (Repeat for other colors)
+        //(Repeat for other colors)
 
         // Set click listeners for avatar buttons
         avatar1Button.setOnClickListener {
@@ -57,6 +57,7 @@ class PlayerProfile2 : AppCompatActivity() {
         avatar6Button.setOnClickListener {
             selectedAvatar = R.drawable.a6
         }
+        // (Repeat for other avatars)
 
         // Set click listeners for color buttons
         redColorButton.setOnClickListener {
@@ -77,22 +78,20 @@ class PlayerProfile2 : AppCompatActivity() {
         brownColorButton.setOnClickListener {
             selectedColor = R.drawable.brown
         }
+        // (Repeat for other colors)
 
-        // Save button click listener
         saveButton.setOnClickListener {
-            val playerName = playerNameEditText.text.toString()
+            val playerName2 = playerNameEditText.text.toString()
 
-            if (playerName.isEmpty() || selectedAvatar == -1 || selectedColor == -1) {
+            if (playerName2.isEmpty() || selectedAvatar == -1 || selectedColor == -1) {
                 Toast.makeText(this, "Please complete your profile.", Toast.LENGTH_SHORT).show()
-            }
-            else
-            {
-                savePlayerProfile(playerName, selectedAvatar, selectedColor)
+            } else {
+                savePlayerProfile(playerName2, selectedAvatar, selectedColor)
                 Toast.makeText(this, "Profile saved!", Toast.LENGTH_SHORT).show()
 
-                // Navigate to the next activity
-                val intent = Intent(this, PlayerProfile1::class.java) // Change this to the correct target activity
-                startActivity(intent) //(add the next activity here)
+                // Navigate to another activity, or perform another action
+                val intent = Intent(this, PlayerProfile1::class.java) // Replace with the correct activity
+                startActivity(intent)
             }
         }
     }
