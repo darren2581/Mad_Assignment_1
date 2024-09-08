@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".PlayerProfile1"
-            android:exported="false" /> <!-- Declare PlayerProfileActivity -->
+            android:exported="false" />
         <activity
             android:name=".GridSize"
             android:exported="false" />
@@ -28,13 +28,7 @@
             android:name=".Board7x6a"
             android:exported="false" />
         <activity
-            android:name=".Board7x6"
-            android:exported="false" />
-        <activity
             android:name=".Board8x7a"
-            android:exported="false" />
-        <activity
-            android:name=".Board8x7"
             android:exported="false" />
         <activity
             android:name=".Wins"
