@@ -1,13 +1,12 @@
 package com.example.madassignment1
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class PlayerProfile1 : AppCompatActivity() {
 
@@ -94,6 +93,22 @@ class PlayerProfile1 : AppCompatActivity() {
             else {
                 savePlayerProfile(playerName, selectedAvatar, selectedColor)
                 Toast.makeText(this, "Profile saved!", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, GridSize::class.java)
+                intent.putExtra("PLAYER_NAME1", playerName)
+                intent.putExtra("PLAYER_AVATAR1", selectedAvatar)
+                intent.putExtra("PLAYER_COLOUR1", selectedColor)
+
+                val sharedPref = getSharedPreferences("PlayerProfile", MODE_PRIVATE)
+                val playerName2 = sharedPref.getString("playerName2", "")
+                val selectedAvatar2 = sharedPref.getInt("selectedAvatar2", -1)
+                val selectedColor2 = sharedPref.getInt("selectedColor2", -1)
+
+                intent.putExtra("PLAYER_NAME2", playerName2)
+                intent.putExtra("PLAYER_AVATAR2", selectedAvatar2)
+                intent.putExtra("PLAYER_COLOUR2", selectedColor2)
+
+                startActivity(intent)
 
                 // Navigate to DisplayProfileActivity or wherever needed
                 //val intent = Intent(this, DisplayProfileActivity::class.java)

@@ -12,7 +12,33 @@ import android.widget.TextView
 class Statistics : Fragment() {
 
     companion object {
-        fun newInstance() = Statistics()
+        @JvmStatic
+        fun newInstance(
+            roundsPlayed: Int,
+            player1Name: String,
+            player2Name: String,
+            player1Win: Int,
+            player2Win: Int,
+            player1Lose: Int,
+            player2Lose: Int,
+            player1Avatar: String,
+            player2Avatar: String
+        ): Statistics {
+            val fragment = Statistics()
+            val args = Bundle().apply {
+                putInt("PLAYED", roundsPlayed)
+                putString("PLAYER_NAME1", player1Name)
+                putString("PLAYER_NAME2", player2Name)
+                putInt("PLAYER1_WIN", player1Win)
+                putInt("PLAYER2_WIN", player2Win)
+                putInt("PLAYER1_LOSE", player1Lose)
+                putInt("PLAYER2_LOSE", player2Lose)
+                putString("PLAYER_AVATAR1", player1Avatar)
+                putString("PLAYER_AVATAR2", player2Avatar)
+            }
+            fragment.arguments = args
+            return fragment
+        }
     }
 
     private val viewModel: StatisticsViewModel by viewModels()
@@ -32,26 +58,26 @@ class Statistics : Fragment() {
         super.onCreate(savedInstanceState)
 
         // Retrieve the value from the arguments
-        val receivedRounds = arguments?.getInt("PLAYED", -1)
-        val player1Name = arguments?.getString("PLAYER1_NAME", "")
-        val player2Name = arguments?.getString("PLAYER2_NAME", "")
-        val player1Win = arguments?.getInt("PLAYER1_WIN", 0)
-        val player2Win = arguments?.getInt("PLAYER2_WIN", 0)
-        val player1Lose = arguments?.getInt("PLAYER1_LOSE", 0)
-        val player2Lose = arguments?.getInt("PLAYER2_LOSE", 0)
-        val player1Avatar = arguments?.getString("PLAYER1_AVATAR", "")
-        val player2Avatar = arguments?.getString("PLAYER2_AVATAR", "")
+        val receivedRounds = arguments?.getInt("PLAYED", 0) ?: 0
+        val player1Name = arguments?.getString("PLAYER_NAME1") ?: ""
+        val player2Name = arguments?.getString("PLAYER_NAME2") ?: ""
+        val player1Win = arguments?.getInt("PLAYER1_WIN") ?: 0
+        val player2Win = arguments?.getInt("PLAYER2_WIN") ?: 0
+        val player1Lose = arguments?.getInt("PLAYER1_LOSE") ?: 0
+        val player2Lose = arguments?.getInt("PLAYER2_LOSE") ?: 0
+        val player1Avatar = arguments?.getString("PLAYER_AVATAR1") ?: ""
+        val player2Avatar = arguments?.getString("PLAYER_AVATAR2") ?: ""
 
         // Update the ViewModel with the received data
-        viewModel.setRoundsPlayed(receivedRounds ?: 0)
-        viewModel.setWinsPlayer1(player1Win ?: 0)
-        viewModel.setWinsPlayer2(player2Win ?: 0)
-        viewModel.setLosesPlayer1(player1Lose ?: 0)
-        viewModel.setLosesPlayer2(player2Lose ?: 0)
-        viewModel.setNamePlayer1(player1Name ?: " ")
-        viewModel.setNamePlayer2(player2Name ?: " ")
-        viewModel.setAvatarPlayer1(player1Avatar ?: "")
-        viewModel.setAvatarPlayer2(player2Avatar ?: "")
+        viewModel.setRoundsPlayed(receivedRounds)
+        viewModel.setWinsPlayer1(player1Win)
+        viewModel.setWinsPlayer2(player2Win)
+        viewModel.setLosesPlayer1(player1Lose)
+        viewModel.setLosesPlayer2(player2Lose)
+        viewModel.setNamePlayer1(player1Name)
+        viewModel.setNamePlayer2(player2Name)
+        viewModel.setAvatarPlayer1(player1Avatar)
+        viewModel.setAvatarPlayer2(player2Avatar)
     }
 
     override fun onCreateView(
@@ -77,7 +103,7 @@ class Statistics : Fragment() {
         percent2 = view.findViewById(R.id.percent2)
 
         viewModel.roundsPlayed.observe(viewLifecycleOwner) { roundsPlayed ->
-            rounds.text = "Round $roundsPlayed"
+            rounds.text = "Rounds Played: $roundsPlayed"
         }
 
         viewModel.winsPlayer1.observe(viewLifecycleOwner) { winsPlayer1 ->
@@ -149,3 +175,4 @@ class Statistics : Fragment() {
         percentTextView.text = String.format("Win Rate: %.2f%%", winRate)
     }
 }
+

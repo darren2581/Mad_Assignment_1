@@ -19,16 +19,19 @@
             android:name=".PlayerProfile1"
             android:exported="false" /> <!-- Declare PlayerProfileActivity -->
         <activity
-            android:name=".PlayerProfileActivity"
+            android:name=".GridSize"
             android:exported="false" />
         <activity
-            android:name=".PlayerProfileActivityTwo"
+            android:name=".Board6x5a"
             android:exported="false" />
         <activity
-            android:name=".Board6x5"
+            android:name=".Board7x6a"
             android:exported="false" />
         <activity
             android:name=".Board7x6"
+            android:exported="false" />
+        <activity
+            android:name=".Board8x7a"
             android:exported="false" />
         <activity
             android:name=".Board8x7"

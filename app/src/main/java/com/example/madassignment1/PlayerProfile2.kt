@@ -90,7 +90,10 @@ class PlayerProfile2 : AppCompatActivity() {
                 Toast.makeText(this, "Profile saved!", Toast.LENGTH_SHORT).show()
 
                 // Navigate to another activity, or perform another action
-                val intent = Intent(this, PlayerProfile1::class.java) // Replace with the correct activity
+                val intent = Intent(this, PlayerProfile1::class.java)
+                intent.putExtra("PLAYER_NAME2", playerName2)
+                intent.putExtra("PLAYER_AVATAR2", selectedAvatar)
+                intent.putExtra("PLAYER_COLOUR2", selectedColor)
                 startActivity(intent)
             }
         }
