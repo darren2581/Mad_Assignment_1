@@ -7,16 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".Board8x7">
 
+    <FrameLayout
+        android:id="@+id/statistics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </FrameLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="380dp"
         android:layout_height="500dp"
         android:background="@color/cardview_dark_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/statistics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <Button
@@ -26,6 +35,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +47,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c3"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,6 +58,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c4"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,6 +69,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c5"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,6 +80,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c6"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,6 +91,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r1c7"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,6 +101,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,6 +112,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r1c1" />
@@ -107,6 +124,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c3"
             app:layout_constraintTop_toBottomOf="@+id/r1c2" />
 
@@ -117,6 +135,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c4"
             app:layout_constraintTop_toBottomOf="@+id/r1c3" />
 
@@ -127,6 +146,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c5"
             app:layout_constraintTop_toBottomOf="@+id/r1c4" />
 
@@ -137,6 +157,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c6"
             app:layout_constraintTop_toBottomOf="@+id/r1c5" />
 
@@ -147,6 +168,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r2c7"
             app:layout_constraintTop_toBottomOf="@+id/r1c6" />
 
@@ -156,6 +178,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r1c7" />
 
@@ -166,6 +189,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r2c1" />
@@ -177,6 +201,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c3"
             app:layout_constraintTop_toBottomOf="@+id/r2c2" />
 
@@ -187,6 +212,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c4"
             app:layout_constraintTop_toBottomOf="@+id/r2c3" />
 
@@ -197,6 +223,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c5"
             app:layout_constraintTop_toBottomOf="@+id/r2c4" />
 
@@ -207,6 +234,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c6"
             app:layout_constraintTop_toBottomOf="@+id/r2c5" />
 
@@ -217,6 +245,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r3c7"
             app:layout_constraintTop_toBottomOf="@+id/r2c6" />
 
@@ -226,6 +255,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r2c7" />
 
@@ -236,6 +266,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r3c1" />
@@ -247,6 +278,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c3"
             app:layout_constraintTop_toBottomOf="@+id/r3c2" />
 
@@ -257,6 +289,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c4"
             app:layout_constraintTop_toBottomOf="@+id/r3c3" />
 
@@ -267,6 +300,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c5"
             app:layout_constraintTop_toBottomOf="@+id/r3c4" />
 
@@ -277,6 +311,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c6"
             app:layout_constraintTop_toBottomOf="@+id/r3c5" />
 
@@ -287,6 +322,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r4c7"
             app:layout_constraintTop_toBottomOf="@+id/r3c6" />
 
@@ -296,6 +332,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r3c7" />
 
@@ -306,6 +343,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r4c1" />
@@ -317,6 +355,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c3"
             app:layout_constraintTop_toBottomOf="@+id/r4c2" />
 
@@ -327,6 +366,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c4"
             app:layout_constraintTop_toBottomOf="@+id/r4c3" />
 
@@ -337,6 +377,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c5"
             app:layout_constraintTop_toBottomOf="@+id/r4c4" />
 
@@ -347,6 +388,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c6"
             app:layout_constraintTop_toBottomOf="@+id/r4c5" />
 
@@ -357,6 +399,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r5c7"
             app:layout_constraintTop_toBottomOf="@+id/r4c6" />
 
@@ -366,6 +409,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r4c7" />
 
@@ -376,6 +420,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r5c1" />
@@ -387,6 +432,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c3"
             app:layout_constraintTop_toBottomOf="@+id/r5c2" />
 
@@ -397,6 +443,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c4"
             app:layout_constraintTop_toBottomOf="@+id/r5c3" />
 
@@ -407,6 +454,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c5"
             app:layout_constraintTop_toBottomOf="@+id/r5c4" />
 
@@ -417,6 +465,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c6"
             app:layout_constraintTop_toBottomOf="@+id/r5c5" />
 
@@ -427,6 +476,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r6c7"
             app:layout_constraintTop_toBottomOf="@+id/r5c6" />
 
@@ -436,6 +486,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r5c7" />
 
@@ -446,6 +497,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r6c1" />
@@ -457,6 +509,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c3"
             app:layout_constraintTop_toBottomOf="@+id/r6c2" />
 
@@ -467,6 +520,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c4"
             app:layout_constraintTop_toBottomOf="@+id/r6c3" />
 
@@ -477,6 +531,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c5"
             app:layout_constraintTop_toBottomOf="@+id/r6c4" />
 
@@ -487,6 +542,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c6"
             app:layout_constraintTop_toBottomOf="@+id/r6c5" />
 
@@ -497,6 +553,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r7c7"
             app:layout_constraintTop_toBottomOf="@+id/r6c6" />
 
@@ -506,6 +563,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r6c7" />
 
@@ -516,6 +574,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r7c1" />
@@ -527,6 +586,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c3"
             app:layout_constraintTop_toBottomOf="@+id/r7c2" />
 
@@ -537,6 +597,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle2"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c4"
             app:layout_constraintTop_toBottomOf="@+id/r7c3" />
 
@@ -547,6 +608,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c5"
             app:layout_constraintTop_toBottomOf="@+id/r7c4" />
 
@@ -557,6 +619,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c6"
             app:layout_constraintTop_toBottomOf="@+id/r7c5" />
 
@@ -567,6 +630,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toStartOf="@+id/r8c7"
             app:layout_constraintTop_toBottomOf="@+id/r7c6" />
 
@@ -576,6 +640,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_circle"
+            android:contentDescription="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/r7c7" />
 

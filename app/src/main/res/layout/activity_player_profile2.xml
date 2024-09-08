@@ -5,141 +5,131 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".playerprofile">
-
+    tools:context=".PlayerProfile2">
     <Button
         android:id="@+id/choose_colour_red"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="46dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/red"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choose_colour_blue"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_colour_text" />
 
     <Button
         android:id="@+id/choose_colour_brown"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="72dp"
         android:background="@drawable/brown"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/choose_colour_grey" />
+        app:layout_constraintStart_toEndOf="@+id/choose_colour_grey"
+        app:layout_constraintTop_toBottomOf="@+id/choose_colour_yellow" />
 
     <Button
         android:id="@+id/choose_colour_yellow"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="165dp"
         android:background="@drawable/yellow"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/choose_colour_blue" />
+        app:layout_constraintStart_toEndOf="@+id/choose_colour_blue"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_colour_text" />
 
     <Button
         android:id="@+id/choose_colour_grey"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/grey"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_colour_blue" />
 
     <Button
         android:id="@+id/choose_avatar2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/a2"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_avatar_text" />
 
     <Button
         android:id="@+id/choose_avatar6"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="404dp"
         android:background="@drawable/a6"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/choose_avatar2" />
+        app:layout_constraintStart_toEndOf="@+id/choose_avatar2"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_avatar_text" />
 
     <Button
         android:id="@+id/choose_avatar5"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="324dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/a5"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_avatar2" />
 
     <Button
         android:id="@+id/choose_avatar4"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="46dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="44dp"
-        android:layout_marginBottom="324dp"
         android:background="@drawable/a4"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choose_avatar5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_avatar1" />
 
     <Button
         android:id="@+id/choose_avatar3"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="324dp"
         android:background="@drawable/a3"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/choose_avatar5" />
+        app:layout_constraintStart_toEndOf="@+id/choose_avatar5"
+        app:layout_constraintTop_toBottomOf="@+id/choose_avatar6" />
 
     <Button
         android:id="@+id/choose_avatar1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="46dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/a1"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choose_avatar2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_avatar_text" />
 
     <TextView
         android:id="@+id/Playernameshow"
@@ -156,55 +146,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="15dp"
         android:text="Please choose your avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/player_enter_name" />
 
     <TextView
         android:id="@+id/Choose_colour_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginTop="30dp"
         android:text="Please choose your colour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_avatar5" />
 
     <Button
         android:id="@+id/choose_colour_blue"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="165dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="165dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/blue"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_colour_text" />
 
     <Button
         android:id="@+id/choose_colour_purple"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="46dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/purple"
         android:text="ㅤ"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choose_colour_grey"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_colour_red" />
 
-    <TextView
+    <EditText
         android:id="@+id/player_enter_name"
         android:layout_width="95dp"
         android:layout_height="58dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="20dp"
         android:text="NAME"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Playernameshow" />
+
+    <Button
+        android:id="@+id/savebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_colour_grey" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
