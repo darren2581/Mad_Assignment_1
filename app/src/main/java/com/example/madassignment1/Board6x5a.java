@@ -20,6 +20,7 @@ public class Board6x5a extends AppCompatActivity {
     private int played;
     private int player1Win, player2Win;
     private int player1Lose, player2Lose;
+    private int gameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,21 @@ public class Board6x5a extends AppCompatActivity {
         player1Lose = prefs.getInt("player1Lose", 0);
         player2Lose = prefs.getInt("player2Lose", 0);
 
-        board6x5 = new int[rows][cols];
-        initializeBoardButtons();
+        SharedPreferences Prefs = getSharedPreferences("game_mode", MODE_PRIVATE);
+        gameMode = Prefs.getInt("GAME_MODE", 0);
 
-        showStatistics();
-//        clearSharedPreferences();
+        if(gameMode == 1){
+            board6x5 = new int[rows][cols];
+            initializeBoardButtons();
+
+            showStatistics();
+        }
+        if(gameMode == 2){
+            board6x5 = new int[rows][cols];
+            initializeBoardButtons();
+
+//            showStatistics();
+        }
     }
 
     private void initializeBoardButtons() {

@@ -12,6 +12,7 @@ class PlayerProfile1 : AppCompatActivity() {
 
     private var selectedAvatar: Int = -1 // -1 indicates no avatar selected
     private var selectedColor: Int = -1 // -1 indicates no color selected
+    private var gameMode: Int = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +39,6 @@ class PlayerProfile1 : AppCompatActivity() {
         val greyColorButton: Button = findViewById(R.id.choose_colour_grey)
         val purpleColorButton: Button = findViewById(R.id.choose_colour_purple)
         val yellowColorButton: Button = findViewById(R.id.choose_colour_yellow)
-        // (Repeat for other colors)
-        //(Repeat for other colors)
 
         // Set click listeners for avatar buttons
         avatar1Button.setOnClickListener {
@@ -109,10 +108,6 @@ class PlayerProfile1 : AppCompatActivity() {
                 intent.putExtra("PLAYER_COLOUR2", selectedColor2)
 
                 startActivity(intent)
-
-                // Navigate to DisplayProfileActivity or wherever needed
-                //val intent = Intent(this, DisplayProfileActivity::class.java)
-                //startActivity(intent)
             }
         }
     }
