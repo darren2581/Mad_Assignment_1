@@ -1,10 +1,13 @@
 package com.example.madassignment1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+
+import java.util.Random;
 
 public class Board7x6a extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class Board7x6a extends AppCompatActivity {
     private int played;
     private int player1Win, player2Win;
     private int player1Lose, player2Lose;
+    private int gameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +42,29 @@ public class Board7x6a extends AppCompatActivity {
             chosenColour2 = R.drawable.green;
         }
 
-        // Initialize statistics to default values
-        played = 0;
-        player1Win = 0;
-        player2Win = 0;
-        player1Lose = 0;
-        player2Lose = 0;
+        // Load statistics from SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        played = prefs.getInt("played", 0);
+        player1Win = prefs.getInt("player1Win", 0);
+        player2Win = prefs.getInt("player2Win", 0);
+        player1Lose = prefs.getInt("player1Lose", 0);
+        player2Lose = prefs.getInt("player2Lose", 0);
 
-        board7x6 = new int[rows][cols];
-        initializeBoardButtons();
+        SharedPreferences Prefs = getSharedPreferences("game_mode", MODE_PRIVATE);
+        gameMode = Prefs.getInt("GAME_MODE", 0);
 
-        showStatistics();
+        if(gameMode == 1){
+            board7x6 = new int[rows][cols];
+            initializeBoardButtons();
+
+            showStatistics();
+        }
+        if(gameMode == 2){
+            board7x6 = new int[rows][cols];
+            initializeBoardButtons();
+
+            showStatistics();
+        }
     }
 
     private void initializeBoardButtons() {
@@ -143,6 +159,43 @@ public class Board7x6a extends AppCompatActivity {
                 break;
             }
         }
+
+        // AI's move
+        if (gameMode == 1 && !p1Move) {
+            int aiCol = generateAiMove();
+            for (int row = rows - 1; row >= 0; row--) {
+                if (board7x6[row][aiCol] == 0) {
+                    board7x6[row][aiCol] = 2; // AI's move
+                    updateBoardButtons(row, aiCol);
+
+                    if (checkWin(row, aiCol)) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+                        updateWinLossCounts(false); // Update win/loss counts
+                        return;
+                    }
+
+                    if (checkDraw()) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+
+                        //Open Draws activity
+                        Intent intent = new Intent(this, Draws.class);
+                        startActivity(intent);
+                        return;
+                    }
+
+                    p1Move = !p1Move;
+                    break;
+                }
+            }
+        }
+    }
+
+    private int generateAiMove() {
+        Random rand = new Random();
+        int aiCol = rand.nextInt(cols);
+        return aiCol;
     }
 
     private void updateBoardButtons(int row, int col) {
@@ -238,8 +291,20 @@ public class Board7x6a extends AppCompatActivity {
         return getResources().getResourceEntryName(avatarResId);
     }
 
+    private void saveStatistics() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("played", played);
+        editor.putInt("player1Win", player1Win);
+        editor.putInt("player2Win", player2Win);
+        editor.putInt("player1Lose", player1Lose);
+        editor.putInt("player2Lose", player2Lose);
+        editor.apply(); // Commit changes
+    }
+
     private void updatePlayedCount() {
         played++; // Increment played count
+        saveStatistics(); // Save statistics
     }
 
     private void updateWinLossCounts(boolean p1Move) {
@@ -253,10 +318,31 @@ public class Board7x6a extends AppCompatActivity {
             player1Lose++;
         }
 
+        saveStatistics(); // Save statistics
+
         // Start the Wins activity and pass data
         Intent intent = new Intent(this, Wins.class);
         intent.putExtra("WINNER_NAME", p1Move ? player1Name : player2Name);
         intent.putExtra("WINNER_AVATAR", p1Move ? chosenAvatar1 : chosenAvatar2);
         startActivity(intent);
+    }
+
+    private void clearSharedPreferences() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear(); // Clear all preferences
+        editor.apply(); // Commit changes
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        clearSharedPreferences();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        clearSharedPreferences();
     }
 }

@@ -18,6 +18,7 @@ public class GridSize extends AppCompatActivity {
     private String player1Name, player2Name;
     private int chosenAvatar1, chosenAvatar2;
     private int chosenColour1, chosenColour2;
+    private int gameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +83,11 @@ public class GridSize extends AppCompatActivity {
         // Determine which grid to open based on the grid user choses
         if ("6x5".equals(chosenGrid)) {
             boardIntent = new Intent(this, Board6x5a.class);
-        } else if ("7x6".equals(chosenGrid)) {
+        }
+        else if ("7x6".equals(chosenGrid)) {
             boardIntent = new Intent(this, Board7x6a.class);
-        } else if ("8x7".equals(chosenGrid)) {
+        }
+        else if ("8x7".equals(chosenGrid)) {
             boardIntent = new Intent(this, Board8x7a.class);
         }
 
@@ -96,6 +99,7 @@ public class GridSize extends AppCompatActivity {
             boardIntent.putExtra("PLAYER_NAME2", player2Name);
             boardIntent.putExtra("PLAYER_AVATAR2", chosenAvatar2);
             boardIntent.putExtra("PLAYER_COLOUR2", chosenColour2);
+
             startActivity(boardIntent);
         }
     }

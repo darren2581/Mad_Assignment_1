@@ -20,6 +20,8 @@ class Gamemode : AppCompatActivity() {
         // Set an OnClickListener for the "Play AI" button
         btnPlayAI.setOnClickListener {
             // Create an Intent to start PlayerProfileActivity
+            val Prefs = getSharedPreferences("game_mode", MODE_PRIVATE)
+            Prefs.edit().putInt("GAME_MODE", 1).apply()
             val intent = Intent(this, PlayerProfile1::class.java)
             startActivity(intent)
         }
@@ -27,11 +29,12 @@ class Gamemode : AppCompatActivity() {
         // Set an OnClickListener for the "2 Player" button
         btnPlayHuman.setOnClickListener {
             // Create an Intent to start PlayerProfileActivity
+            val Prefs = getSharedPreferences("game_mode", MODE_PRIVATE)
+            Prefs.edit().putInt("GAME_MODE", 2).apply()
             val intent1 = Intent(this, PlayerProfile1::class.java)
             startActivity(intent1)
             val intent2 = Intent(this, PlayerProfile2::class.java)
             startActivity(intent2)
-
         }
     }
 }
