@@ -50,6 +50,10 @@ class Draws : AppCompatActivity() {
 
         // Set up Exit button click listener
         exitButton.setOnClickListener {
+            // Broadcast intent to clear SharedPreferences
+            val broadcastIntent = Intent("RESET_SHARED_PREFS")
+            sendBroadcast(broadcastIntent)
+
             finishAffinity() // Close the app
         }
     }

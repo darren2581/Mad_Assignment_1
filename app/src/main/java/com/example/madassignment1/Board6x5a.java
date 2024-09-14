@@ -1,6 +1,7 @@
 package com.example.madassignment1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,17 +39,19 @@ public class Board6x5a extends AppCompatActivity {
             chosenColour2 = R.drawable.green;
         }
 
-        // Initialize statistics to default values
-        played = 0;
-        player1Win = 0;
-        player2Win = 0;
-        player1Lose = 0;
-        player2Lose = 0;
+        // Load statistics from SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        played = prefs.getInt("played", 0);
+        player1Win = prefs.getInt("player1Win", 0);
+        player2Win = prefs.getInt("player2Win", 0);
+        player1Lose = prefs.getInt("player1Lose", 0);
+        player2Lose = prefs.getInt("player2Lose", 0);
 
         board6x5 = new int[rows][cols];
         initializeBoardButtons();
 
         showStatistics();
+//        clearSharedPreferences();
     }
 
     private void initializeBoardButtons() {
@@ -225,8 +228,20 @@ public class Board6x5a extends AppCompatActivity {
         return getResources().getResourceEntryName(avatarResId);
     }
 
+    private void saveStatistics() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("played", played);
+        editor.putInt("player1Win", player1Win);
+        editor.putInt("player2Win", player2Win);
+        editor.putInt("player1Lose", player1Lose);
+        editor.putInt("player2Lose", player2Lose);
+        editor.apply(); // Commit changes
+    }
+
     private void updatePlayedCount() {
         played++; // Increment played count
+        saveStatistics(); // Save statistics
     }
 
     private void updateWinLossCounts(boolean p1Move) {
@@ -240,10 +255,25 @@ public class Board6x5a extends AppCompatActivity {
             player1Lose++;
         }
 
+        saveStatistics(); // Save statistics
+
         // Start the Wins activity and pass data
         Intent intent = new Intent(this, Wins.class);
         intent.putExtra("WINNER_NAME", p1Move ? player1Name : player2Name);
         intent.putExtra("WINNER_AVATAR", p1Move ? chosenAvatar1 : chosenAvatar2);
         startActivity(intent);
+    }
+
+    private void clearSharedPreferences() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear(); // Clear all preferences
+        editor.apply(); // Commit changes
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        clearSharedPreferences();
     }
 }

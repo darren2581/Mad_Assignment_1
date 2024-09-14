@@ -19,10 +19,15 @@ class Wins : AppCompatActivity() {
         val winnerName = intent.getStringExtra("WINNER_NAME")
         val winnerAvatar = intent.getIntExtra("WINNER_AVATAR", R.drawable.a2)
 
-        val boardSize = intent.getStringExtra("BOARD_SIZE")
-        val played = intent.getIntExtra("PLAYED", 0)
-        val player1Win = intent.getIntExtra("PLAYER1_WIN", 0)
-        val player2Win = intent.getIntExtra("PLAYER2_WIN", 0)
+        var boardSize = intent.getStringExtra("BOARD_SIZE")
+        var played = intent.getIntExtra("PLAYED", 0)
+        var player1Win = intent.getIntExtra("PLAYER1_WIN", 0)
+        var player2Win = intent.getIntExtra("PLAYER2_WIN", 0)
+        var player1Lose = intent.getIntExtra("PLAYER1_LOSE", 0)
+        var player2Lose = intent.getIntExtra("PLAYER2_LOSE", 0)
+
+        // Increment played count
+        played += 1
 
         // Update the UI
         val winnerTextView: TextView = findViewById(R.id.winner)
@@ -37,6 +42,15 @@ class Wins : AppCompatActivity() {
 
         // Set up Play Again button click listener
         playAgainButton.setOnClickListener {
+            if (winnerName == "Player 1") {
+                player1Win += 1
+                player2Lose += 1
+            }
+            else if (winnerName == "Player 2") {
+                player2Win += 1
+                player1Lose += 1
+            }
+
             // Redirect to the correct board based on the board size
             val intent = when (boardSize) {
                 "6x5" -> Intent(this@Wins, Board6x5a::class.java)
@@ -45,10 +59,13 @@ class Wins : AppCompatActivity() {
                 else -> Intent(this@Wins, Board8x7a::class.java) // Default to 8x7
             }
 
-            // Pass the updated statistics back to the board activity
+            // Pass the updated statistics to the board activity
             intent.putExtra("PLAYER1_WIN", player1Win)
             intent.putExtra("PLAYER2_WIN", player2Win)
+            intent.putExtra("PLAYER1_LOSE", player1Lose)
+            intent.putExtra("PLAYER2_LOSE", player2Lose)
             intent.putExtra("PLAYED", played)
+            intent.putExtra("BOARD_SIZE", boardSize)
 
             startActivity(intent)
             finish() // Close the Wins activity

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class StatisticsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
     private val _roundsPlayed = MutableLiveData<Int>()
     val roundsPlayed: LiveData<Int> get() = _roundsPlayed
 
@@ -67,5 +66,20 @@ class StatisticsViewModel : ViewModel() {
 
     fun setAvatarPlayer2(avatar: String) {
         _avatarPlayer2.value = avatar
+    }
+
+    // New method to update values directly
+    fun updateStatistics(
+        roundsPlayed: Int,
+        winsPlayer1: Int,
+        winsPlayer2: Int,
+        losesPlayer1: Int,
+        losesPlayer2: Int
+    ) {
+        setRoundsPlayed(roundsPlayed)
+        setWinsPlayer1(winsPlayer1)
+        setWinsPlayer2(winsPlayer2)
+        setLosesPlayer1(losesPlayer1)
+        setLosesPlayer2(losesPlayer2)
     }
 }
