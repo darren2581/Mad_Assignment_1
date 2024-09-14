@@ -1,10 +1,13 @@
 package com.example.madassignment1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+
+import java.util.Random;
 
 public class Board8x7a extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class Board8x7a extends AppCompatActivity {
     private int played;
     private int player1Win, player2Win;
     private int player1Lose, player2Lose;
+    private int gameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,23 +42,33 @@ public class Board8x7a extends AppCompatActivity {
             chosenColour2 = R.drawable.green;
         }
 
-        // Initialize statistics to default values
-        played = 0;
-        player1Win = 0;
-        player2Win = 0;
-        player1Lose = 0;
-        player2Lose = 0;
+        // Load statistics from SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        played = prefs.getInt("played", 0);
+        player1Win = prefs.getInt("player1Win", 0);
+        player2Win = prefs.getInt("player2Win", 0);
+        player1Lose = prefs.getInt("player1Lose", 0);
+        player2Lose = prefs.getInt("player2Lose", 0);
 
-        board8x7 = new int[rows][cols];
-        initializeBoardButtons();
+        SharedPreferences Prefs = getSharedPreferences("game_mode", MODE_PRIVATE);
+        gameMode = Prefs.getInt("GAME_MODE", 0);
 
-        showStatistics();
+        if(gameMode == 1){
+            board8x7 = new int[rows][cols];
+            initializeBoardButtons();
+
+            showStatistics();
+        }
+        if(gameMode == 2){
+            board8x7 = new int[rows][cols];
+            initializeBoardButtons();
+
+            showStatistics();
+        }
     }
 
     private void initializeBoardButtons() {
         boardButtons = new Button[rows][cols];
-
-        // Initialize all buttons for an 8x7 board
         boardButtons[0][0] = findViewById(R.id.r1c1);
         boardButtons[0][1] = findViewById(R.id.r1c2);
         boardButtons[0][2] = findViewById(R.id.r1c3);
@@ -160,6 +174,43 @@ public class Board8x7a extends AppCompatActivity {
                 break;
             }
         }
+
+        // AI's move
+        if (gameMode == 1 && !p1Move) {
+            int aiCol = generateAiMove();
+            for (int row = rows - 1; row >= 0; row--) {
+                if (board8x7[row][aiCol] == 0) {
+                    board8x7[row][aiCol] = 2; // AI's move
+                    updateBoardButtons(row, aiCol);
+
+                    if (checkWin(row, aiCol)) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+                        updateWinLossCounts(false); // Update win/loss counts
+                        return;
+                    }
+
+                    if (checkDraw()) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+
+                        //Open Draws activity
+                        Intent intent = new Intent(this, Draws.class);
+                        startActivity(intent);
+                        return;
+                    }
+
+                    p1Move = !p1Move;
+                    break;
+                }
+            }
+        }
+    }
+
+    private int generateAiMove() {
+        Random rand = new Random();
+        int aiCol = rand.nextInt(cols);
+        return aiCol;
     }
 
     private void updateBoardButtons(int row, int col) {
@@ -177,25 +228,40 @@ public class Board8x7a extends AppCompatActivity {
     }
 
     public boolean checkDirec(int row, int col, int rowDirec, int colDirec, int player) {
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            int r = row + i * rowDirec;
-            int c = col + i * colDirec;
-            if (r >= 0 && r < rows && c >= 0 && c < cols && board8x7[r][c] == player) {
+        int count = 1;
+
+        for (int i = 1; i < 4; i++) {
+            int newRow = row + i * rowDirec;
+            int newCol = col + i * colDirec;
+
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board8x7[newRow][newCol] == player) {
                 count++;
             } else {
                 break;
             }
         }
+
+        for (int i = 1; i < 4; i++) {
+            int newRow = row - i * rowDirec;
+            int newCol = col - i * colDirec;
+
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board8x7[newRow][newCol] == player) {
+                count++;
+            } else {
+                break;
+            }
+        }
+
         return count >= 4;
     }
 
     public boolean checkWin(int row, int col) {
         int player = board8x7[row][col];
-        return checkDirec(row, col, 0, 1, player) || // Horizontal
-                checkDirec(row, col, 1, 0, player) || // Vertical
-                checkDirec(row, col, 1, 1, player) || // Diagonal /
-                checkDirec(row, col, 1, -1, player);  // Diagonal \
+
+        return checkDirec(row, col, 0, 1, player) || checkDirec(row, col, 0, -1, player) ||
+                checkDirec(row, col, 1, 0, player) || checkDirec(row, col, -1, 0, player) ||
+                checkDirec(row, col, 1, 1, player) || checkDirec(row, col, -1, -1, player) ||
+                checkDirec(row, col, 1, -1, player) || checkDirec(row, col, -1, 1, player);
     }
 
     public boolean checkDraw() {
@@ -240,8 +306,20 @@ public class Board8x7a extends AppCompatActivity {
         return getResources().getResourceEntryName(avatarResId);
     }
 
+    private void saveStatistics() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("played", played);
+        editor.putInt("player1Win", player1Win);
+        editor.putInt("player2Win", player2Win);
+        editor.putInt("player1Lose", player1Lose);
+        editor.putInt("player2Lose", player2Lose);
+        editor.apply(); // Commit changes
+    }
+
     private void updatePlayedCount() {
         played++; // Increment played count
+        saveStatistics(); // Save statistics
     }
 
     private void updateWinLossCounts(boolean p1Move) {
@@ -255,10 +333,31 @@ public class Board8x7a extends AppCompatActivity {
             player1Lose++;
         }
 
+        saveStatistics(); // Save statistics
+
         // Start the Wins activity and pass data
         Intent intent = new Intent(this, Wins.class);
         intent.putExtra("WINNER_NAME", p1Move ? player1Name : player2Name);
         intent.putExtra("WINNER_AVATAR", p1Move ? chosenAvatar1 : chosenAvatar2);
         startActivity(intent);
+    }
+
+    private void clearSharedPreferences() {
+        SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear(); // Clear all preferences
+        editor.apply(); // Commit changes
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        clearSharedPreferences();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        clearSharedPreferences();
     }
 }

@@ -7,6 +7,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.Random;
+
 public class Board6x5a extends AppCompatActivity {
 
     private Button[][] boardButtons;
@@ -61,7 +63,7 @@ public class Board6x5a extends AppCompatActivity {
             board6x5 = new int[rows][cols];
             initializeBoardButtons();
 
-//            showStatistics();
+            showStatistics();
         }
     }
 
@@ -144,6 +146,43 @@ public class Board6x5a extends AppCompatActivity {
                 break;
             }
         }
+
+        // AI's move
+        if (gameMode == 1 && !p1Move) {
+            int aiCol = generateAiMove();
+            for (int row = rows - 1; row >= 0; row--) {
+                if (board6x5[row][aiCol] == 0) {
+                    board6x5[row][aiCol] = 2; // AI's move
+                    updateBoardButtons(row, aiCol);
+
+                    if (checkWin(row, aiCol)) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+                        updateWinLossCounts(false); // Update win/loss counts
+                        return;
+                    }
+
+                    if (checkDraw()) {
+                        stopGame();
+                        updatePlayedCount(); // Increment played count when game ends
+
+                        //Open Draws activity
+                        Intent intent = new Intent(this, Draws.class);
+                        startActivity(intent);
+                        return;
+                    }
+
+                    p1Move = !p1Move;
+                    break;
+                }
+            }
+        }
+    }
+
+    private int generateAiMove() {
+        Random rand = new Random();
+        int aiCol = rand.nextInt(cols);
+        return aiCol;
     }
 
     private void updateBoardButtons(int row, int col) {
@@ -285,6 +324,12 @@ public class Board6x5a extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        clearSharedPreferences();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
         clearSharedPreferences();
     }
 }
