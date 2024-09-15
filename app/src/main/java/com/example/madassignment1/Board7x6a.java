@@ -37,10 +37,6 @@ public class Board7x6a extends AppCompatActivity {
         player2Name = intent.getStringExtra("PLAYER_NAME2");
         chosenAvatar2 = intent.getIntExtra("PLAYER_AVATAR2", R.drawable.a2);
         chosenColour2 = intent.getIntExtra("PLAYER_COLOUR2", R.drawable.blue);
-        if ("NAME".equals(player2Name)) {
-            player2Name = "AI";
-            chosenColour2 = R.drawable.green;
-        }
 
         // Load statistics from SharedPreferences
         SharedPreferences prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
@@ -55,15 +51,19 @@ public class Board7x6a extends AppCompatActivity {
 
         if(gameMode == 1){
             board7x6 = new int[rows][cols];
+            player2Name = "AI";
+            chosenColour2 = R.drawable.green;
             initializeBoardButtons();
 
             showStatistics();
+            showMenu();
         }
         if(gameMode == 2){
             board7x6 = new int[rows][cols];
             initializeBoardButtons();
 
             showStatistics();
+            showMenu();
         }
     }
 
@@ -344,5 +344,13 @@ public class Board7x6a extends AppCompatActivity {
     public void onLowMemory() {
         super.onLowMemory();
         clearSharedPreferences();
+    }
+
+    private void showMenu() {
+        MenuFragment menuFragment = MenuFragment.newInstance("param1", "param2");
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.menu, menuFragment);
+        transaction.commit();
     }
 }
