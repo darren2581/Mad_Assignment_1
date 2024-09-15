@@ -27,6 +27,12 @@
         app:layout_constraintTop_toTopOf="parent">
     </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/turn_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="310dp"
         android:layout_height="365dp"

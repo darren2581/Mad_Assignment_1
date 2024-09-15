@@ -65,6 +65,7 @@ public class Board6x5a extends AppCompatActivity {
             showStatistics();
             showMenu();
         }
+        updateTurnFragment();
     }
 
     private void initializeBoardButtons() {
@@ -136,18 +137,19 @@ public class Board6x5a extends AppCompatActivity {
                     stopGame();
                     updatePlayedCount(); // Increment played count when game ends
 
-                    //Open Draws activity
+                    // Open Draws activity
                     Intent intent = new Intent(this, Draws.class);
                     startActivity(intent);
                     return;
                 }
 
-                p1Move = !p1Move;
+                p1Move = !p1Move; // Toggle the turn
+                updateTurnFragment(); // Update the fragment to show the next player's turn
                 break;
             }
         }
 
-        // AI's move
+        // AI's move (Game Mode 1)
         if (gameMode == 1 && !p1Move) {
             int aiCol = generateAiMove();
             for (int row = rows - 1; row >= 0; row--) {
@@ -158,7 +160,7 @@ public class Board6x5a extends AppCompatActivity {
                     if (checkWin(row, aiCol)) {
                         stopGame();
                         updatePlayedCount(); // Increment played count when game ends
-                        updateWinLossCounts(false); // Update win/loss counts
+                        updateWinLossCounts(false); // AI wins
                         return;
                     }
 
@@ -166,13 +168,14 @@ public class Board6x5a extends AppCompatActivity {
                         stopGame();
                         updatePlayedCount(); // Increment played count when game ends
 
-                        //Open Draws activity
+                        // Open Draws activity
                         Intent intent = new Intent(this, Draws.class);
                         startActivity(intent);
                         return;
                     }
 
-                    p1Move = !p1Move;
+                    p1Move = !p1Move; // Switch back to Player 1 after AI's move
+                    updateTurnFragment(); // Update the fragment to show Player 1's turn
                     break;
                 }
             }
@@ -338,6 +341,15 @@ public class Board6x5a extends AppCompatActivity {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.menu, menuFragment);
+        transaction.commit();
+    }
+
+    private void updateTurnFragment() {
+        String currentPlayer = p1Move ? player1Name : player2Name;
+        TurnFragment turnFragment = TurnFragment.newInstance(currentPlayer);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.turn_fragment_container, turnFragment);
         transaction.commit();
     }
 
