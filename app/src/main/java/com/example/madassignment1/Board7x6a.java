@@ -133,7 +133,8 @@ public class Board7x6a extends AppCompatActivity {
             if (board7x6[row][col] == 0) {
                 if (p1Move) {
                     board7x6[row][col] = 1; // Player 1's move
-                } else {
+                }
+                else {
                     board7x6[row][col] = 2; // Player 2's move
                 }
 
@@ -156,13 +157,13 @@ public class Board7x6a extends AppCompatActivity {
                     return;
                 }
 
-                p1Move = !p1Move; // Toggle the turn
+                p1Move = !p1Move;
                 updateTurnFragment(); // Update the fragment to show the next player's turn
                 break;
             }
         }
 
-        // AI's move (Game Mode 1)
+        // AI's move
         if (gameMode == 1 && !p1Move) {
             int aiCol = generateAiMove();
             for (int row = rows - 1; row >= 0; row--) {

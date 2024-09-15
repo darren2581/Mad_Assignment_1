@@ -63,9 +63,6 @@ class MenuFragment : Fragment() {
                     val intent2 = Intent(requireActivity(), PlayerProfile2::class.java)
                     startActivity(intent2)
                 }
-                else -> {
-                    // Handle other game modes or show an error message
-                }
             }
         }
 

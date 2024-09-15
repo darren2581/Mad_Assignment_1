@@ -143,13 +143,13 @@ public class Board6x5a extends AppCompatActivity {
                     return;
                 }
 
-                p1Move = !p1Move; // Toggle the turn
+                p1Move = !p1Move;
                 updateTurnFragment(); // Update the fragment to show the next player's turn
                 break;
             }
         }
 
-        // AI's move (Game Mode 1)
+        // AI's move
         if (gameMode == 1 && !p1Move) {
             int aiCol = generateAiMove();
             for (int row = rows - 1; row >= 0; row--) {

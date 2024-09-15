@@ -23,10 +23,10 @@ class TurnFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Show the layout for the fragment
         val view = inflater.inflate(R.layout.fragment_turn, container, false)
 
-        // Update the TextView with the current player's turn
+        // Update the TextView with the current player turn
         val turnTextView: TextView = view.findViewById(R.id.turn)
         turnTextView.text = "$playerTurn's Turn"
 
