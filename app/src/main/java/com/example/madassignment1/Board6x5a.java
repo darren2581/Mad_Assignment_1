@@ -128,6 +128,7 @@ public class Board6x5a extends AppCompatActivity {
 
                 if (checkWin(row, col)) {
                     stopGame();
+                    resetBoard();
                     updatePlayedCount(); // Increment played count when game ends
                     updateWinLossCounts(p1Move); // Update win/loss counts
                     return;
@@ -136,6 +137,8 @@ public class Board6x5a extends AppCompatActivity {
                 if (checkDraw()) {
                     stopGame();
                     updatePlayedCount(); // Increment played count when game ends
+
+                    resetBoard();
 
                     // Open Draws activity
                     Intent intent = new Intent(this, Draws.class);
@@ -159,6 +162,7 @@ public class Board6x5a extends AppCompatActivity {
 
                     if (checkWin(row, aiCol)) {
                         stopGame();
+                        resetBoard();
                         updatePlayedCount(); // Increment played count when game ends
                         updateWinLossCounts(false); // AI wins
                         return;
@@ -167,6 +171,8 @@ public class Board6x5a extends AppCompatActivity {
                     if (checkDraw()) {
                         stopGame();
                         updatePlayedCount(); // Increment played count when game ends
+
+                        resetBoard();
 
                         // Open Draws activity
                         Intent intent = new Intent(this, Draws.class);
@@ -193,7 +199,8 @@ public class Board6x5a extends AppCompatActivity {
 
         if (p1Move) {
             btn.setBackgroundResource(chosenColour1);
-        } else {
+        }
+        else {
             btn.setBackgroundResource(chosenColour2);
         }
     }
@@ -211,7 +218,8 @@ public class Board6x5a extends AppCompatActivity {
 
             if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board6x5[newRow][newCol] == player) {
                 count++;
-            } else {
+            }
+            else {
                 break;
             }
         }
@@ -222,7 +230,8 @@ public class Board6x5a extends AppCompatActivity {
 
             if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && board6x5[newRow][newCol] == player) {
                 count++;
-            } else {
+            }
+            else {
                 break;
             }
         }
@@ -302,7 +311,8 @@ public class Board6x5a extends AppCompatActivity {
             // Player 1 won
             player1Win++;
             player2Lose++;
-        } else {
+        }
+        else {
             // Player 2 won
             player2Win++;
             player1Lose++;
@@ -353,4 +363,88 @@ public class Board6x5a extends AppCompatActivity {
         transaction.commit();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save the board state
+        outState.putSerializable("board6x5", board6x5);
+        outState.putBoolean("p1Move", p1Move);
+
+        // Save player and game data
+        outState.putString("player1Name", player1Name);
+        outState.putString("player2Name", player2Name);
+        outState.putInt("chosenAvatar1", chosenAvatar1);
+        outState.putInt("chosenAvatar2", chosenAvatar2);
+        outState.putInt("chosenColour1", chosenColour1);
+        outState.putInt("chosenColour2", chosenColour2);
+        outState.putInt("played", played);
+        outState.putInt("player1Win", player1Win);
+        outState.putInt("player2Win", player2Win);
+        outState.putInt("player1Lose", player1Lose);
+        outState.putInt("player2Lose", player2Lose);
+        outState.putInt("gameMode", gameMode);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore the board state
+        board6x5 = (int[][]) savedInstanceState.getSerializable("board6x5");
+        p1Move = savedInstanceState.getBoolean("p1Move");
+
+        // Restore player and game data
+        player1Name = savedInstanceState.getString("player1Name");
+        player2Name = savedInstanceState.getString("player2Name");
+        chosenAvatar1 = savedInstanceState.getInt("chosenAvatar1");
+        chosenAvatar2 = savedInstanceState.getInt("chosenAvatar2");
+        chosenColour1 = savedInstanceState.getInt("chosenColour1");
+        chosenColour2 = savedInstanceState.getInt("chosenColour2");
+        played = savedInstanceState.getInt("played");
+        player1Win = savedInstanceState.getInt("player1Win");
+        player2Win = savedInstanceState.getInt("player2Win");
+        player1Lose = savedInstanceState.getInt("player1Lose");
+        player2Lose = savedInstanceState.getInt("player2Lose");
+        gameMode = savedInstanceState.getInt("gameMode");
+
+        // Restore the UI elements (buttons, turn, etc.)
+        initializeBoardButtons();
+        restoreBoardState();
+        updateTurnFragment();
+    }
+
+    private void restoreBoardState() {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (board6x5[row][col] == 1) {
+                    boardButtons[row][col].setBackgroundResource(chosenColour1); // Player 1's move
+                }
+                else if (board6x5[row][col] == 2) {
+                    boardButtons[row][col].setBackgroundResource(chosenColour2); // Player 2's move
+                }
+            }
+        }
+    }
+
+    private void resetBoard() {
+        // Reset the board array
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                board6x5[row][col] = 0;
+            }
+        }
+
+        // Clear the buttons
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                Button btn = findButtonByRowCol(row, col);
+                btn.setBackgroundResource(R.drawable.white_circle); // Assuming default background
+                btn.setEnabled(true); // Re-enable buttons for new game
+            }
+        }
+
+        // Reset the turn
+        p1Move = true;
+    }
 }
