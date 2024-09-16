@@ -188,11 +188,11 @@ public class Board6x5a extends AppCompatActivity {
         }
     }
 
-    private int generateAiMove() {
-        Random rand = new Random();
-        int aiCol = rand.nextInt(cols);
-        return aiCol;
-    }
+//    private int generateAiMove() {
+//        Random rand = new Random();
+//        int aiCol = rand.nextInt(cols);
+//        return aiCol;
+//    }
 
     private void updateBoardButtons(int row, int col) {
         Button btn = findButtonByRowCol(row, col);
@@ -446,5 +446,90 @@ public class Board6x5a extends AppCompatActivity {
 
         // Reset the turn
         p1Move = true;
+    }
+
+    private int generateAiMove() {
+        int bestScore = Integer.MIN_VALUE;
+        int bestMove = -1;
+
+        // Iterate over all possible columns
+        for (int col = 0; col < cols; col++) {
+            for (int row = rows - 1; row >= 0; row--) {
+                // Check if the column has an empty slot
+                if (board6x5[row][col] == 0) {
+                    // Temporarily make the move (AI = 2)
+                    board6x5[row][col] = 2;
+                    // Evaluate the board using Alpha-Beta Pruning
+                    int score = alphaBeta(board6x5, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, false);
+                    // Undo the move
+                    board6x5[row][col] = 0;
+
+                    // Find the best score and move
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMove = col;
+                    }
+                    break;  // Move to next column after finding the top-most row in the column
+                }
+            }
+        }
+        return bestMove;
+    }
+
+    private int alphaBeta(int[][] board, int depth, int alpha, int beta, boolean isMaximizingPlayer) {
+        // Base case: check for win, draw, or maximum depth (AI or player wins)
+        if (checkWinForPlayer(2)) return 10; // AI wins
+        if (checkWinForPlayer(1)) return -10; // Player wins
+        if (checkDraw()) return 0;  // Draw
+        if (depth >= 5) return 0;   // Limit the depth for performance
+
+        if (isMaximizingPlayer) {
+            int maxEval = Integer.MIN_VALUE;
+            for (int col = 0; col < cols; col++) {
+                for (int row = rows - 1; row >= 0; row--) {
+                    if (board[row][col] == 0) {
+                        // Simulate AI move
+                        board[row][col] = 2;
+                        int eval = alphaBeta(board, depth + 1, alpha, beta, false);
+                        board[row][col] = 0; // Undo the move
+                        maxEval = Math.max(maxEval, eval);
+                        alpha = Math.max(alpha, eval);
+                        if (beta <= alpha) break;  // Prune the search
+                    }
+                }
+            }
+            return maxEval;
+        }
+        else {
+            int minEval = Integer.MAX_VALUE;
+            for (int col = 0; col < cols; col++) {
+                for (int row = rows - 1; row >= 0; row--) {
+                    if (board[row][col] == 0) {
+                        // Simulate Player move
+                        board[row][col] = 1;
+                        int eval = alphaBeta(board, depth + 1, alpha, beta, true);
+                        board[row][col] = 0; // Undo the move
+                        minEval = Math.min(minEval, eval);
+                        beta = Math.min(beta, eval);
+                        if (beta <= alpha) break;  // Prune the search
+                    }
+                }
+            }
+            return minEval;
+        }
+    }
+
+    // Helper function to check if a player has won
+    private boolean checkWinForPlayer(int player) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (board6x5[row][col] == player) {
+                    if (checkWin(row, col)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
